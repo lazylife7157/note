@@ -1,0 +1,459 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme;
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            document.querySelector('html').classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="ml-concepts/ch00-00-ml-concepts.html"><strong aria-hidden="true">1.</strong> ML Concepts</a></li><li><ol class="section"><li><a href="ml-concepts/ch01-01-framing.html"><strong aria-hidden="true">1.1.</strong> Framing</a></li><li><a href="ml-concepts/ch01-02-descending-into-ml.html"><strong aria-hidden="true">1.2.</strong> Descending into ML</a></li><li><a href="ml-concepts/ch01-03-reducing-loss.html"><strong aria-hidden="true">1.3.</strong> Reducing Loss</a></li><li><a href="ml-concepts/ch01-04-first-steps-with-th.html"><strong aria-hidden="true">1.4.</strong> First Steps with TF</a></li><li><a href="ml-concepts/ch01-05-generalization.html"><strong aria-hidden="true">1.5.</strong> Generalization</a></li><li><a href="ml-concepts/ch01-06-training-and-test-sets.html"><strong aria-hidden="true">1.6.</strong> Training and Test Sets</a></li><li><a href="ml-concepts/ch01-07-validation.html"><strong aria-hidden="true">1.7.</strong> Validation</a></li><li><a href="ml-concepts/ch01-08-representation.html"><strong aria-hidden="true">1.8.</strong> Representation</a></li><li><a href="ml-concepts/ch01-09-feature-crosses.html"><strong aria-hidden="true">1.9.</strong> Feature Crosses</a></li><li><a href="ml-concepts/ch01-10-regularization-simplicity.html"><strong aria-hidden="true">1.10.</strong> Regularization: Simplicity</a></li><li><a href="ml-concepts/ch01-11-logistic-regression.html"><strong aria-hidden="true">1.11.</strong> Logistic Regression</a></li><li><a href="ml-concepts/ch01-12-classification.html"><strong aria-hidden="true">1.12.</strong> Classification</a></li><li><a href="ml-concepts/ch01-13-regularization-sparsity.html"><strong aria-hidden="true">1.13.</strong> Regularization: Sparsity</a></li><li><a href="ml-concepts/ch01-14-introduction-to-neural-nets.html"><strong aria-hidden="true">1.14.</strong> Introduction to Neural Nets</a></li><li><a href="ml-concepts/ch01-15-training-neural-nets.html"><strong aria-hidden="true">1.15.</strong> Training Neural Nets</a></li><li><a href="ml-concepts/ch01-16-multi-class-neural-nets.html"><strong aria-hidden="true">1.16.</strong> Multi-class Neural Nets</a></li><li><a href="ml-concepts/ch01-17-embeddings.html"><strong aria-hidden="true">1.17.</strong> Embeddings</a></li></ol></li><li><a href="appendix/appendix.html"><strong aria-hidden="true">2.</strong> Appendix</a></li><li><ol class="section"><li><a href="appendix/a-cheat-sheet.html"><strong aria-hidden="true">2.1.</strong> A - Cheat sheet</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                        </div>
+
+                        <h1 class="menu-title"></h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="print.html#ml-concepts" id="ml-concepts"><h1>ML Concepts</h1></a>
+<hr />
+<a class="header" href="print.html#introduction-to-ml" id="introduction-to-ml"><h2>Introduction to ML</h2></a>
+<ul>
+<li>기계 학습을 배우면
+<ul>
+<li>개발 시간을 줄일 수 있다. (항상 그렇진 않음)
+<ul>
+<li>잘못 된 예
+<ul>
+<li><a href="http://joelgrus.com/2016/05/23/fizz-buzz-in-tensorflow/">http://joelgrus.com/2016/05/23/fizz-buzz-in-tensorflow/</a></li>
+<li><a href="https://github.com/joelgrus/fizz-buzz-tensorflow/">https://github.com/joelgrus/fizz-buzz-tensorflow/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>하나의 모델로 데이터만 바꿔서 다른 프로그램을 만들 수 있다.
+<ul>
+<li>ex) 기계 번역</li>
+</ul>
+</li>
+<li>규칙 기반으로 해결할 수 없는 문제를 해결할 수 있다.
+<ul>
+<li>ex) 고양이 사진 분류</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#framing" id="framing"><h1>Framing</h1></a>
+<hr />
+<a class="header" href="print.html#ml-terminology" id="ml-terminology"><h2>ML Terminology</h2></a>
+<ul>
+<li>label: 예측할 대상.</li>
+<li>feature: 입력 변수.</li>
+<li>example: instance of data (labeled, unlabeled)</li>
+<li>model: feature와 label 사이의 관계를 정의함</li>
+<li>training: model을 만들거나 학습시키는 과정</li>
+<li>inference: trained model에 unlabeled example을 입력으로 주어 prediction을 얻는 과정</li>
+<li>regression
+<ul>
+<li>continuous value를 예측</li>
+<li>output이 연속적인 값</li>
+<li>ex) 판교의 집값은 얼마인가?</li>
+</ul>
+</li>
+<li>classification
+<ul>
+<li>discrete value를 예측</li>
+<li>output이 class</li>
+<li>ex) 이 동물은 고양이인가?</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#descending-into-ml" id="descending-into-ml"><h1>Descending into ML</h1></a>
+<hr />
+<a class="header" href="print.html#linear-regression" id="linear-regression"><h2>Linear Regression</h2></a>
+<ul>
+<li>linear relationship: \( y' = b + w_1x_1 \)
+<ul>
+<li>\( y' \): predicted label</li>
+<li>\( b \): bias (y-intercept)</li>
+<li>\( w_1 \): weight of feature 1</li>
+<li>\( x_1 \): feature</li>
+</ul>
+</li>
+<li>inference \( \approx \) predict</li>
+</ul>
+<a class="header" href="print.html#training-and-loss" id="training-and-loss"><h2>Training and Loss</h2></a>
+<ul>
+<li>training: empirical risk minimization
+<ul>
+<li>examples를 통해 loss를 최소화 하는 model을 찾는 과정</li>
+</ul>
+</li>
+<li>error: label과 prediction의 차이
+<ul>
+<li>signed</li>
+</ul>
+</li>
+<li>loss: bad prediction에 대한 penalty
+<ul>
+<li>unsigned</li>
+</ul>
+</li>
+<li>loss function: loss를 계산하기 위한 함수
+<ul>
+<li>ex) squared loss(\( L_2 \) loss), mean square error (MSE)</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#reducing-loss" id="reducing-loss"><h1>Reducing Loss</h1></a>
+<hr />
+<a class="header" href="print.html#an-iterative-approach" id="an-iterative-approach"><h2>An Iterative Approach</h2></a>
+<ul>
+<li>parameter: model의 변수
+<ul>
+<li>ex) weight</li>
+</ul>
+</li>
+<li>convergence: training이 진행되면서 loss가 고정되거나 극단적으로 느리게 변하는 상태</li>
+<li>모델은 다음과 같은 반복적인 계산을 통해 학습된다
+<ol start="0">
+<li>parameter 초기화</li>
+<li>prediction 생성 (inference)</li>
+<li>loss 계산</li>
+<li>parameter 갱신</li>
+<li>1번으로</li>
+</ol>
+</li>
+</ul>
+<a class="header" href="print.html#gradient-descent" id="gradient-descent"><h2>Gradient Descent</h2></a>
+<ul>
+<li>linear regression에서 weight 와 loss의 관계를 좌표평면에 그려보면 밥그릇 모양이 그려지는데, 경사를 따라 내려가면서 loss를 최소화하는 weight를 찾는 방법</li>
+<li>gradient: vector of partial derivatives
+<ul>
+<li>vector이르모 방향과 정량적인 값을 가짐</li>
+<li>gradient는 항상 loss function의 가장 가파른 곳을 향한다</li>
+<li>loss를 줄이기 위해 gradient의 반대 방향으로 weight를 갱신해야 함</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#learning-rate" id="learning-rate"><h2>Learning Rate</h2></a>
+<ul>
+<li>learning rate (step size): weight를 갱신할 때 gradient에 곱해주는 scalar값
+<ul>
+<li>learning rate가 너무 작으면 모델이 수렴하기까지 걸리는 시간이 길어짐</li>
+<li>learning rate가 너무 크면 모델이 수렴하지 않거나 발산할 수 있음</li>
+</ul>
+</li>
+<li>hyperparameter: machine learning algorithm을 최적화 하기 위해 프로그래머가 조작하는 값
+<ul>
+<li>ex) learning rate</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#optimizing-learning-rate" id="optimizing-learning-rate"><h2>Optimizing Learning Rate</h2></a>
+<p>최적의 learning rate는 data와 algorithm의 특성에 따라 다름</p>
+<a class="header" href="print.html#stochastic-gradient-descent" id="stochastic-gradient-descent"><h2>Stochastic Gradient Descent</h2></a>
+<ul>
+<li>batch: 1번의 iteration에 사용되는 examples 집합</li>
+<li>batch size: batch안의 examples 수</li>
+<li>full-batch: batch size = number of examples
+<ul>
+<li>data가 크면 계산이 오래 걸림</li>
+</ul>
+</li>
+<li>stochastic gradient descent: batch size = 1
+<ul>
+<li>noise가 심함</li>
+</ul>
+</li>
+<li>mini-batch stochastic gradient descent: batch size = 10 ~ 1000
+<ul>
+<li>noise는 줄이고, 계산 효율은 올리고</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#first-steps-with-tf" id="first-steps-with-tf"><h1>First Steps with TF</h1></a>
+<hr />
+<a class="header" href="print.html#toolkit" id="toolkit"><h2>Toolkit</h2></a>
+<ul>
+<li>tensorflow toolkit 계층 구조</li>
+</ul>
+<table><thead><tr><th> Toolkit(s)                         </th><th> Description                           </th></tr></thead><tbody>
+<tr><td> Estimator                          </td><td> High-level, OOP API                   </td></tr>
+<tr><td> tf.layers / tf.losses / tf.metrics </td><td> Libraries for common model components </td></tr>
+<tr><td> Tensorflow                         </td><td> Lower-level APIs                      </td></tr>
+</tbody></table>
+<ul>
+<li>처음엔 high-level API를 사용하고, 모델을 더 유연하게 확장하고 싶을 때 low-level을 사용</li>
+<li>Tensorflow는 graph protocol buffer와 (distributed) graph를 실행하기 위한 runtime으로 구성됨</li>
+<li>JVM이 다양한 platform에서 동작하듯이 tensorflow로 CPU와 GPU에서 동작함</li>
+<li>tf.estimator: tensorflow graph 생성과 session 실행을 encapsulate한 모듈</li>
+<li>graph: tensorflow에서 계산 과정은 graph로 표현됨
+<ul>
+<li>nodes: operations</li>
+<li>edges: passing the result of an operation (directed)</li>
+</ul>
+</li>
+<li>tensor: tensorflow의 기본 자료 구조 (N차원 자료 구조)
+<ul>
+<li>scalars, vectors, matrices</li>
+<li>integer, floating-point, string</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#generalization" id="generalization"><h1>Generalization</h1></a>
+<hr />
+<a class="header" href="print.html#peril-of-overfitting" id="peril-of-overfitting"><h2>Peril of Overfitting</h2></a>
+<p>...</p>
+<a class="header" href="print.html#training-and-test-sets" id="training-and-test-sets"><h1>Training and Test Sets</h1></a>
+<hr />
+<a class="header" href="print.html#splitting-data" id="splitting-data"><h2>Splitting Data</h2></a>
+<p>...</p>
+<a class="header" href="print.html#validation" id="validation"><h1>Validation</h1></a>
+<hr />
+<a class="header" href="print.html#another-partition" id="another-partition"><h2>Another Partition</h2></a>
+<p>...</p>
+<a class="header" href="print.html#representation" id="representation"><h1>Representation</h1></a>
+<hr />
+<a class="header" href="print.html#feature-crosses" id="feature-crosses"><h1>Feature Crosses</h1></a>
+<hr />
+<a class="header" href="print.html#regularization-simplicity" id="regularization-simplicity"><h1>Regularization: Simplicity</h1></a>
+<hr />
+<a class="header" href="print.html#logistic-regression" id="logistic-regression"><h1>Logistic Regression</h1></a>
+<hr />
+<a class="header" href="print.html#classification" id="classification"><h1>Classification</h1></a>
+<hr />
+<a class="header" href="print.html#regularization-sparsity" id="regularization-sparsity"><h1>Regularization: Sparsity</h1></a>
+<hr />
+<a class="header" href="print.html#introduction-to-neural-nets" id="introduction-to-neural-nets"><h1>Introduction to Neural Nets</h1></a>
+<hr />
+<a class="header" href="print.html#training-neural-nets" id="training-neural-nets"><h1>Training Neural Nets</h1></a>
+<hr />
+<a class="header" href="print.html#multi-class-neural-nets" id="multi-class-neural-nets"><h1>Multi-class Neural Nets</h1></a>
+<hr />
+<a class="header" href="print.html#embeddings" id="embeddings"><h1>Embeddings</h1></a>
+<hr />
+<a class="header" href="print.html#appendix" id="appendix"><h1>Appendix</h1></a>
+<hr />
+<a class="header" href="print.html#a---cheat-sheet" id="a---cheat-sheet"><h1>A - Cheat sheet</h1></a>
+<hr />
+<a class="header" href="print.html#terminology" id="terminology"><h2>Terminology</h2></a>
+<ul>
+<li>label: 예측할 대상</li>
+<li>feature: 입력 변수</li>
+<li>prediction: 예측값</li>
+<li>example: instance of data (labeled, unlabeled)</li>
+<li>model: feature와 label 사이의 관계를 정의함</li>
+<li>training: model을 만들거나 학습시키는 과정</li>
+<li>inference: trained model에 unlabeled example을 입력으로 주어 prediction을 얻는 과정</li>
+<li>error: label과 prediction의 차이</li>
+<li>loss: bad prediction에 대한 penalty</li>
+<li>loss function: loss를 계산하기 위한 함수</li>
+<li>parameter: model의 변수</li>
+<li>convergence: training이 진행되면서 loss가 고정되거나 극단적으로 느리게 변하는 상태</li>
+<li>gradient: vector of partial derivatives</li>
+<li>learning rate (step size): weight를 갱신할 때 gradient에 곱해주는 scalar값</li>
+<li>hyperparameter: machine learning algorithm을 최적화 하기 위해 프로그래머가 조작하는 값</li>
+<li>batch: 1번의 iteration에 사용되는 examples 집합</li>
+<li>batch size: batch안의 examples 수</li>
+</ul>
+<a class="header" href="print.html#terminology-tensorflow-specific" id="terminology-tensorflow-specific"><h2>Terminology: Tensorflow specific</h2></a>
+<ul>
+<li>graph: tensorflow에서 계산 과정은 graph로 표현됨
+<ul>
+<li>nodes: operations</li>
+<li>edges: passing the result of an operation (directed)</li>
+</ul>
+</li>
+<li>tensor: tensorflow의 기본 자료 구조 (N차원 자료 구조)</li>
+</ul>
+<a class="header" href="print.html#supervised-learning" id="supervised-learning"><h2>Supervised learning</h2></a>
+<p>labled example로 model을 학습시킴</p>
+<ul>
+<li>Regression
+<ul>
+<li>Continuous value를 예측</li>
+<li>Output이 연속적인 값</li>
+</ul>
+</li>
+<li>Classification
+<ul>
+<li>Discrete value를 예측</li>
+<li>Output이 class</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#linear-regression-1" id="linear-regression-1"><h2>Linear regression</h2></a>
+<p>선형 데이터를 표현하고 예측함
+\[ \vec{y} = W\vec{x} + b \]
+\[
+\vec{y}: label \quad
+W: weight \quad
+x: feature \quad
+b: bias
+\]</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '_FontAwesome/css/font-awesome.css';
+                document.head.insertBefore(link, document.head.firstChild)
+            }
+        </script>
+
+        
+
+        
+
+        
+
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                window.print();
+            })
+        </script>
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>
