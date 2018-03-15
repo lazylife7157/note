@@ -1,0 +1,23 @@
+# Machine Learning Crash Course
+
+## ML Concepts
+- [ML Concepts](./ml-concepts/ch00-00-ml-concepts.md)
+    - [Framing](./ml-concepts/ch01-01-framing.md)
+    - [Descending into ML](./ml-concepts/ch01-02-descending-into-ml.md)
+    - [Reducing Loss](./ml-concepts/ch01-03-reducing-loss.md)
+    - [First Steps with TF](./ml-concepts/ch01-04-first-steps-with-th.md)
+    - [Generalization](./ml-concepts/ch01-05-generalization.md)
+    - [Training and Test Sets](./ml-concepts/ch01-06-training-and-test-sets.md)
+    - [Validation](./ml-concepts/ch01-07-validation.md)
+    - [Representation](./ml-concepts/ch01-08-representation.md)
+    - [Feature Crosses](./ml-concepts/ch01-09-feature-crosses.md)
+    - [Regularization: Simplicity](./ml-concepts/ch01-10-regularization-simplicity.md)
+    - [Logistic Regression](./ml-concepts/ch01-11-logistic-regression.md)
+    - [Classification](./ml-concepts/ch01-12-classification.md)
+    - [Regularization: Sparsity](./ml-concepts/ch01-13-regularization-sparsity.md)
+    - [Introduction to Neural Nets](./ml-concepts/ch01-14-introduction-to-neural-nets.md)
+    - [Training Neural Nets](./ml-concepts/ch01-15-training-neural-nets.md)
+    - [Multi-class Neural Nets](./ml-concepts/ch01-16-multi-class-neural-nets.md)
+    - [Embeddings](./ml-concepts/ch01-17-embeddings.md)
+- [Appendix](./appendix/appendix.md)
+    - [A - Cheat sheet](./appendix/a-cheat-sheet.md)
