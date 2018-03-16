@@ -20,6 +20,7 @@ clean()
     rm .gitignore
     rm .travis.yml
     rm LICENSE
+    rm README.md
 }
 
 build machine-learning-crash-course
