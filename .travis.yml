@@ -1,6 +1,10 @@
 sudo: false
 notifications:
   email: false
+branches:
+  only:
+  - gh-pages
+  - master
 language: rust
 cache: cargo
 rust:
