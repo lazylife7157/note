@@ -7,7 +7,7 @@ branches:
   only:
   - master
 install:
-  - (cargo install mdbook --force || true)
+  - (cargo install mdbook || true)
 script:
   - bash ci/build.sh
 deploy:
