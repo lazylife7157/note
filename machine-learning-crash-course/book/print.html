@@ -313,15 +313,41 @@
 <a class="header" href="print.html#generalization" id="generalization"><h1>Generalization</h1></a>
 <hr />
 <a class="header" href="print.html#peril-of-overfitting" id="peril-of-overfitting"><h2>Peril of Overfitting</h2></a>
-<p>...</p>
+<ul>
+<li>overfitting: making a model more complex than necessary
+<ul>
+<li>훈련에 사용된 데이터는 잘 표현하지만, 새로운 데이터를 예측하지 못함</li>
+</ul>
+</li>
+<li>A machine learning model aims to make good predictions on new, previously unseen data.
+<ul>
+<li>훈련에 사용한 데이터로 테스트 하면 안됨</li>
+</ul>
+</li>
+<li>Key assumptions of supervised ML
+<ul>
+<li>Draw examples independently and identically (i.i.d) at random from the distribution.</li>
+<li>The distribution doesn't change within the data set.</li>
+<li>Draw examples from partitions from the same distribution.</li>
+</ul>
+</li>
+</ul>
 <a class="header" href="print.html#training-and-test-sets" id="training-and-test-sets"><h1>Training and Test Sets</h1></a>
 <hr />
 <a class="header" href="print.html#splitting-data" id="splitting-data"><h2>Splitting Data</h2></a>
-<p>...</p>
+<ul>
+<li>training set: a subset to train a model.</li>
+<li>test set: a subset to test the model.</li>
+<li>Never train on test data.</li>
+</ul>
 <a class="header" href="print.html#validation" id="validation"><h1>Validation</h1></a>
 <hr />
 <a class="header" href="print.html#another-partition" id="another-partition"><h2>Another Partition</h2></a>
-<p>...</p>
+<ul>
+<li>validation set: a subset to validate the model.</li>
+<li>training set으로 모델을 학습시키고, validation set을 사용해서 모델을 조정한다. 마지막으로 test set을 사용해서 모델을 검증한다.</li>
+<li>모델 학습 과정에서 test set의 노출을 최소화 해야 함. (ML의 목표는 <strong>새로운</strong> 데이터를 예측하는 것임)</li>
+</ul>
 <a class="header" href="print.html#representation" id="representation"><h1>Representation</h1></a>
 <hr />
 <a class="header" href="print.html#feature-crosses" id="feature-crosses"><h1>Feature Crosses</h1></a>
