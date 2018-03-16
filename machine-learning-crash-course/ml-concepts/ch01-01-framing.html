@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" class="sidebar-visible">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>First Steps with TF - </title>
+        <title>Framing - </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,6 +40,14 @@
             }
         </script>
 
+        <noscript>
+            <style type="text/css">
+                .javascript-only {
+                    display: none;
+                }
+            </style>
+        </noscript>
+
     </head>
     <body class="light">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -68,16 +77,18 @@
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script type="text/javascript">
+            var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             }
-            document.querySelector('html').classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="ml-concepts/ch00-00-ml-concepts.html"><strong aria-hidden="true">1.</strong> ML Concepts</a></li><li><ol class="section"><li><a href="ml-concepts/ch01-01-framing.html"><strong aria-hidden="true">1.1.</strong> Framing</a></li><li><a href="ml-concepts/ch01-02-descending-into-ml.html"><strong aria-hidden="true">1.2.</strong> Descending into ML</a></li><li><a href="ml-concepts/ch01-03-reducing-loss.html"><strong aria-hidden="true">1.3.</strong> Reducing Loss</a></li><li><a href="ml-concepts/ch01-04-first-steps-with-th.html" class="active"><strong aria-hidden="true">1.4.</strong> First Steps with TF</a></li><li><a href="ml-concepts/ch01-05-generalization.html"><strong aria-hidden="true">1.5.</strong> Generalization</a></li><li><a href="ml-concepts/ch01-06-training-and-test-sets.html"><strong aria-hidden="true">1.6.</strong> Training and Test Sets</a></li><li><a href="ml-concepts/ch01-07-validation.html"><strong aria-hidden="true">1.7.</strong> Validation</a></li><li><a href="ml-concepts/ch01-08-representation.html"><strong aria-hidden="true">1.8.</strong> Representation</a></li><li><a href="ml-concepts/ch01-09-feature-crosses.html"><strong aria-hidden="true">1.9.</strong> Feature Crosses</a></li><li><a href="ml-concepts/ch01-10-regularization-simplicity.html"><strong aria-hidden="true">1.10.</strong> Regularization: Simplicity</a></li><li><a href="ml-concepts/ch01-11-logistic-regression.html"><strong aria-hidden="true">1.11.</strong> Logistic Regression</a></li><li><a href="ml-concepts/ch01-12-classification.html"><strong aria-hidden="true">1.12.</strong> Classification</a></li><li><a href="ml-concepts/ch01-13-regularization-sparsity.html"><strong aria-hidden="true">1.13.</strong> Regularization: Sparsity</a></li><li><a href="ml-concepts/ch01-14-introduction-to-neural-nets.html"><strong aria-hidden="true">1.14.</strong> Introduction to Neural Nets</a></li><li><a href="ml-concepts/ch01-15-training-neural-nets.html"><strong aria-hidden="true">1.15.</strong> Training Neural Nets</a></li><li><a href="ml-concepts/ch01-16-multi-class-neural-nets.html"><strong aria-hidden="true">1.16.</strong> Multi-class Neural Nets</a></li><li><a href="ml-concepts/ch01-17-embeddings.html"><strong aria-hidden="true">1.17.</strong> Embeddings</a></li></ol></li><li><a href="appendix/appendix.html"><strong aria-hidden="true">2.</strong> Appendix</a></li><li><ol class="section"><li><a href="appendix/a-cheat-sheet.html"><strong aria-hidden="true">2.1.</strong> A - Cheat sheet</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="ml-concepts/ch00-00-ml-concepts.html"><strong aria-hidden="true">1.</strong> ML Concepts</a></li><li><ol class="section"><li><a href="ml-concepts/ch01-01-framing.html" class="active"><strong aria-hidden="true">1.1.</strong> Framing</a></li><li><a href="ml-concepts/ch01-02-descending-into-ml.html"><strong aria-hidden="true">1.2.</strong> Descending into ML</a></li><li><a href="ml-concepts/ch01-03-reducing-loss.html"><strong aria-hidden="true">1.3.</strong> Reducing Loss</a></li><li><a href="ml-concepts/ch01-04-first-steps-with-th.html"><strong aria-hidden="true">1.4.</strong> First Steps with TF</a></li><li><a href="ml-concepts/ch01-05-generalization.html"><strong aria-hidden="true">1.5.</strong> Generalization</a></li><li><a href="ml-concepts/ch01-06-training-and-test-sets.html"><strong aria-hidden="true">1.6.</strong> Training and Test Sets</a></li><li><a href="ml-concepts/ch01-07-validation.html"><strong aria-hidden="true">1.7.</strong> Validation</a></li><li><a href="ml-concepts/ch01-08-representation.html"><strong aria-hidden="true">1.8.</strong> Representation</a></li><li><a href="ml-concepts/ch01-09-feature-crosses.html"><strong aria-hidden="true">1.9.</strong> Feature Crosses</a></li><li><a href="ml-concepts/ch01-10-regularization-simplicity.html"><strong aria-hidden="true">1.10.</strong> Regularization: Simplicity</a></li><li><a href="ml-concepts/ch01-11-logistic-regression.html"><strong aria-hidden="true">1.11.</strong> Logistic Regression</a></li><li><a href="ml-concepts/ch01-12-classification.html"><strong aria-hidden="true">1.12.</strong> Classification</a></li><li><a href="ml-concepts/ch01-13-regularization-sparsity.html"><strong aria-hidden="true">1.13.</strong> Regularization: Sparsity</a></li><li><a href="ml-concepts/ch01-14-introduction-to-neural-nets.html"><strong aria-hidden="true">1.14.</strong> Introduction to Neural Nets</a></li><li><a href="ml-concepts/ch01-15-training-neural-nets.html"><strong aria-hidden="true">1.15.</strong> Training Neural Nets</a></li><li><a href="ml-concepts/ch01-16-multi-class-neural-nets.html"><strong aria-hidden="true">1.16.</strong> Multi-class Neural Nets</a></li><li><a href="ml-concepts/ch01-17-embeddings.html"><strong aria-hidden="true">1.17.</strong> Embeddings</a></li></ol></li><li><a href="appendix/appendix.html"><strong aria-hidden="true">2.</strong> Appendix</a></li><li><ol class="section"><li><a href="appendix/a-cheat-sheet.html"><strong aria-hidden="true">2.1.</strong> A - Cheat sheet</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -86,7 +97,7 @@
                 
                 <div id="menu-bar" class="menu-bar">
                     <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
+                        <div class="left-buttons javascript-only">
                             <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                                 <i class="fa fa-bars"></i>
                             </button>
@@ -100,9 +111,14 @@
                                 <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                             </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
                         </div>
 
-                        <h1 class="menu-title"></h1>
+                        <h1 class="menu-title"></h1> 
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -111,6 +127,17 @@
                         </div>
                     </div>
                 </div>
+
+                
+                <div id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </div>
+                <div id="searchresults-outer" class="searchresults-outer">
+                    <div class="searchresults-header" id="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
@@ -123,32 +150,28 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="ml-concepts/ch01-04-first-steps-with-th.html#first-steps-with-tf" id="first-steps-with-tf"><h1>First Steps with TF</h1></a>
+                        <a class="header" href="ml-concepts/ch01-01-framing.html#framing" id="framing"><h1>Framing</h1></a>
 <hr />
-<a class="header" href="ml-concepts/ch01-04-first-steps-with-th.html#toolkit" id="toolkit"><h2>Toolkit</h2></a>
+<a class="header" href="ml-concepts/ch01-01-framing.html#ml-terminology" id="ml-terminology"><h2>ML Terminology</h2></a>
 <ul>
-<li>tensorflow toolkit 계층 구조</li>
-</ul>
-<table><thead><tr><th> Toolkit(s)                         </th><th> Description                           </th></tr></thead><tbody>
-<tr><td> Estimator                          </td><td> High-level, OOP API                   </td></tr>
-<tr><td> tf.layers / tf.losses / tf.metrics </td><td> Libraries for common model components </td></tr>
-<tr><td> Tensorflow                         </td><td> Lower-level APIs                      </td></tr>
-</tbody></table>
+<li>label: 예측할 대상.</li>
+<li>feature: 입력 변수.</li>
+<li>example: instance of data (labeled, unlabeled)</li>
+<li>model: feature와 label 사이의 관계를 정의함</li>
+<li>training: model을 만들거나 학습시키는 과정</li>
+<li>inference: trained model에 unlabeled example을 입력으로 주어 prediction을 얻는 과정</li>
+<li>regression
 <ul>
-<li>처음엔 high-level API를 사용하고, 모델을 더 유연하게 확장하고 싶을 때 low-level을 사용</li>
-<li>Tensorflow는 graph protocol buffer와 (distributed) graph를 실행하기 위한 runtime으로 구성됨</li>
-<li>JVM이 다양한 platform에서 동작하듯이 tensorflow로 CPU와 GPU에서 동작함</li>
-<li>tf.estimator: tensorflow graph 생성과 session 실행을 encapsulate한 모듈</li>
-<li>graph: tensorflow에서 계산 과정은 graph로 표현됨
-<ul>
-<li>nodes: operations</li>
-<li>edges: passing the result of an operation (directed)</li>
+<li>continuous value를 예측</li>
+<li>output이 연속적인 값</li>
+<li>ex) 판교의 집값은 얼마인가?</li>
 </ul>
 </li>
-<li>tensor: tensorflow의 기본 자료 구조 (N차원 자료 구조)
+<li>classification
 <ul>
-<li>scalars, vectors, matrices</li>
-<li>integer, floating-point, string</li>
+<li>discrete value를 예측</li>
+<li>output이 class</li>
+<li>ex) 이 동물은 고양이인가?</li>
 </ul>
 </li>
 </ul>
@@ -158,13 +181,13 @@
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="ml-concepts/ch01-03-reducing-loss.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="ml-concepts/ch00-00-ml-concepts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="ml-concepts/ch01-05-generalization.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="ml-concepts/ch01-02-descending-into-ml.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -176,13 +199,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="ml-concepts/ch01-03-reducing-loss.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="ml-concepts/ch00-00-ml-concepts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="ml-concepts/ch01-05-generalization.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="ml-concepts/ch01-02-descending-into-ml.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -206,6 +229,15 @@
 
         
 
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
         
