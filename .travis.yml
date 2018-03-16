@@ -1,0 +1,19 @@
+sudo: false
+language: rust
+cache: cargo
+rust:
+  - stable
+branches:
+  only:
+  - master
+install:
+  - (cargo install mdbook --force || true)
+script:
+  - bash ci/build.sh
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: gh-pages
