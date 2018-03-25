@@ -152,6 +152,81 @@
                     <main>
                         <a class="header" href="ml-concepts/ch01-08-representation.html#representation" id="representation"><h1>Representation</h1></a>
 <hr />
+<a class="header" href="ml-concepts/ch01-08-representation.html#feature-engineering" id="feature-engineering"><h2>Feature Engineering</h2></a>
+<p>Raw data로부터 유의미한 feature들을 만들어 내는 과정</p>
+<ul>
+<li>Integer/floating-pont는 별도의 encoding과정이 필요 없음</li>
+<li>String같이 model이 직접적으로 학습에 사용할 수 없는 (계산 불가) 데이터는 encoding 필요
+<ul>
+<li>vocabulary: feature에 등장할 수 있는 모든 string value들의 집합</li>
+<li>one-hot encoding: binary vector에서 하나의 element만 1이고 나머지는 0으로 설정</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="ml-concepts/ch01-08-representation.html#qualities-of-good-features" id="qualities-of-good-features"><h2>Qualities of Good Features</h2></a>
+<ul>
+<li>드물게 사용되는 value는 feature로 사용하지 말 것
+<ul>
+<li>단 한번, 혹은 아주 드물게 사용되는 value는 model이 제대로 학습에 활용할 수 없음</li>
+</ul>
+</li>
+<li>Feature는 명확한 의미를 가져야 함
+<ul>
+<li>보는 이에 따라 다르게 해석될 여지가 있으면 안됨</li>
+<li>noise에도 주의</li>
+</ul>
+</li>
+<li>Magic value 사용 금지
+<ul>
+<li>어떤 값의 상태를 표현하기 위한 magic value는 model 학습을 방해함</li>
+<li>ex) 0~1 범위의 feature에 값이 존재하지 않음을 표현하기 위해 magic value -1을 할당 (이런 경우 존재 여부를 표현하기 위한 boolean feature를 따로 만드는게 좋음)</li>
+</ul>
+</li>
+<li>상황에 따라 변하는 value는 사용하지 말 것
+<ul>
+<li>ex) 다른 model에서 예측한 값</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="ml-concepts/ch01-08-representation.html#cleaning-data" id="cleaning-data"><h2>Cleaning Data</h2></a>
+<ul>
+<li>scaling: floating-point feature value를 일정한 범위를 갖도록 변환하는 작업
+<ul>
+<li>feature가 하나일 때는 효과가 거의 없지만, 다수의 feature가 있을 때는 다음과 같은 효과가 있음
+<ul>
+<li>gradient descent에서 더 빠르게 converge함</li>
+<li>NaN trap 회피: training에서 floating-point의 표현 범위를 벗어나는 경우</li>
+<li>model이 각각의 feature에 대해 적절한 weight를 학습하도록 도움: scaling이 없으면 더 큰 범위를 가진 feature의 영향력이 지나치게 커질 수 있음</li>
+</ul>
+</li>
+<li>반드시 모든 feature가 같은 범위로 scale될 필요는 없음</li>
+<li>Z score
+<ul>
+<li>\( scalevalue = (value - mean) / stddev \)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>outlier 처리
+<ul>
+<li>log scaling</li>
+<li>clipping</li>
+</ul>
+</li>
+<li>binning
+<ul>
+<li>feature와 label의 관계가 비선형일 때, feature를 여러 개의 bin에 나눠 담아서 구간별로 다른 weight를 갖도록 함</li>
+</ul>
+</li>
+<li>scrubbing: 누락되거나 틀린 data를 처리
+<ul>
+<li>누락</li>
+<li>중복</li>
+<li>오답</li>
+<li>잘못 측정된 feature value</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 

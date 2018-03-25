@@ -152,6 +152,33 @@
                     <main>
                         <a class="header" href="ml-concepts/ch01-10-regularization-simplicity.html#regularization-simplicity" id="regularization-simplicity"><h1>Regularization: Simplicity</h1></a>
 <hr />
+<a class="header" href="ml-concepts/ch01-10-regularization-simplicity.html#l2-regularization" id="l2-regularization"><h2>L2 Regularization</h2></a>
+<p>overfitting을 막기 위해 loss만 최소화 하는 대신 complexity를 추가 한다</p>
+<ul>
+<li>L2 regularization: complextity = weight들의 제곱의 합</li>
+</ul>
+<a class="header" href="ml-concepts/ch01-10-regularization-simplicity.html#lambda" id="lambda"><h2>Lambda</h2></a>
+<p>\[ minimize(Loss(Data|Model) + \lambda \space complexity(Model)) \]
+complextity를 얼마나 반영할 것인가?</p>
+<ul>
+<li>\( \lambda \)가 너무 높으면?
+<ul>
+<li>model이 단순해짐</li>
+<li>underfitting</li>
+</ul>
+</li>
+<li>\( \lambda \)가 너무 낮으면?
+<ul>
+<li>model이 복잡해짐</li>
+<li>overfitting</li>
+</ul>
+</li>
+<li>이상적인 \( \lambda \)는?
+<ul>
+<li>data-dependent</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 
