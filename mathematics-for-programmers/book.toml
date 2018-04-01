@@ -1,7 +1,0 @@
-[book]
-authors = ["lazylife7157"]
-multilingual = false
-src = "src"
-
-[output.html]
-mathjax-support = true

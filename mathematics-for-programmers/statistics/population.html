@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Population - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <noscript>
+            <style type="text/css">
+                .javascript-only {
+                    display: none;
+                }
+            </style>
+        </noscript>
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme;
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="set.html"><strong aria-hidden="true">1.</strong> Set</a></li><li><a href="function.html"><strong aria-hidden="true">2.</strong> Function</a></li><li><a href="field.html"><strong aria-hidden="true">3.</strong> Field</a></li><li><a href="statistics/statistics.html"><strong aria-hidden="true">4.</strong> Statistics</a></li><li><ol class="section"><li><a href="statistics/population.html" class="active"><strong aria-hidden="true">4.1.</strong> Population</a></li></ol></li><li><a href="symbols-in-code.html">Symbols in code</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons javascript-only">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </div>
+                <div id="searchresults-outer" class="searchresults-outer">
+                    <div class="searchresults-header" id="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="statistics/population.html#population" id="population"><h1>Population</h1></a>
+<hr />
+<ul>
+<li>central tendency (대표값): distribution의 특징을 나타내는 값</li>
+<li>parameter (모수): population의 특징을 나타내는 central tendency</li>
+</ul>
+<a class="header" href="statistics/population.html#distribution-분포" id="distribution-분포"><h2>Distribution (분포)</h2></a>
+<p>population의 characteristic이 흩어져 있는 상태를 합이 1인 양수 (relative frequency, 상대 도수)로 나타낸 것</p>
+<ul>
+<li>population mean (모평균): characteristic의 arithmetic mean (산술 평균)으로 정의됨
+<ul>
+<li>finite population \( \{ c_1, c_2, ..., c_N \} \) 에 대해서
+<ul>
+<li>\( \mu = \frac{1}{N}\sum_{i=1}^{N}c_i\)</li>
+</ul>
+<pre><code class="language-python">fin_pop = [1, 1, 2, 2, 4, 8, 8, 8, 8, 8]
+N = len(fin_pop)
+mu = sum(fin_pop) / N
+# mu == 5.0
+# numpy.mean
+</code></pre>
+<ul>
+<li>finite population에서 distinct한 characteristic들이 \( \dot{c_1}, \dot{c_2}, ..., \dot{c_k} \) 이고, 각각의 frequency를 \( f_1, f_2, ..., f_k \) 일 때 population mean은</li>
+<li>\( \mu = \sum_{i=1}^{k}\dot{c_i}\frac{f_i}{N}\)</li>
+</ul>
+<pre><code class="language-python">freqs = {c_dot: fin_pop.count(c_dot) for c_dot in set(fin_pop)}
+mu = sum([c_dot * f for c_dot, f in freqs.items()]) / N
+# mu == 5.0
+</code></pre>
+</li>
+<li>infinite population인 경우
+<ul>
+<li>density function (밀도 함수) p에 대해</li>
+<li>\( \mu = \sum_{x}xp(x) \), p는 relative frequency의 극한</li>
+<li>\( \mu = \int_{-\infty}^{\infty}xp(x)dx \), p는 density curve가 나타내는 함수</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>pth percentile (제 p 백분위수): characteristic을 오름차순으로 정렬했을 때, p%의 characteristic이 그 값보다 작고, (100-p)%의 characteristic이 그 값보다 크게 되는 값
+<ul>
+<li>first quartile (\( Q_1 \), 제1사분위수): 25th per centile</li>
+<li>third quartile (\( Q_3 \), 제3사분위수): 75th per centile</li>
+<li>median (\( Q_2 \), 중앙값): 50th per centile
+<ul>
+<li>distribution의 중심 위치를 나타 낸다</li>
+<li>infinite population의 경우 density curve의 넓이를 이등분 하는 지점</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">def percentile(fin_pop, p):
+    sorted_fin_pop = sorted(fin_pop)
+    N = len(sorted_fin_pop)
+    index = (p / 100.0) * (N-1)
+    i = int(index)
+    if i == index:
+        return sorted_fin_pop[i]
+    else:
+        j = i + 1
+        low = sorted_fin_pop[i] * (j - index)
+        high = sorted_fin_pop[j] * (index - i)
+        return low + high
+
+Q1 = percentile(fin_pop, 25) # Q1 == 2.0
+Q2 = percentile(fin_pop, 50) # Q2 == 6.0
+Q3 = percentile(fin_pop, 75) # Q3 == 8.0
+# numpy.percentile
+</code></pre>
+</li>
+</ul>
+<a class="header" href="statistics/population.html#dispersion-산포-variability-scatter-or-spread" id="dispersion-산포-variability-scatter-or-spread"><h2>Dispersion (산포, variability, scatter, or spread)</h2></a>
+<p>population에서 characteristic이 흩어져 있는 상태</p>
+<ul>
+<li>mean absolute deviation (평균절대편차, MAD): \( c_i \)가 \( Q_2 \)로부터 떨어진 거리의 평균
+<ul>
+<li>\( MAD = \frac{1}{N}\sum_{i=1}^{N}|c_i - Q_2| \)</li>
+</ul>
+<pre><code class="language-python">MAD = sum([abs(c - Q2) for c in fin_pop]) / N
+# MAD == 3.0
+</code></pre>
+</li>
+<li>interquartile range (사분위수범위, IQR): \( Q_3 \) 와 \( Q_1 \) 의 차이, population에서 가운데 50%의 characteristic의 범위를 나타냄
+<ul>
+<li>\( IQR = Q_3 - Q_1 \)</li>
+</ul>
+</li>
+<li>standard deviation (\( \sigma \), 표준편차)
+<ul>
+<li>deviation (편차): \( d = c - \mu \)</li>
+<li>\( \sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(c_i - \mu)^2} \)</li>
+</ul>
+<pre><code class="language-python">sigma = math.sqrt(sum([(c - mu) ** 2 for c in fin_pop]) / N)
+# sigma == 3.0983866769659336
+# numpy.std 
+</code></pre>
+</li>
+<li>variance (분산): standard deviation의 제곱
+<ul>
+<li>\( \sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(c_i - \mu)^2 \)</li>
+</ul>
+<pre><code class="language-python">variance = sum([(c - mu) ** 2 for c in fin_pop]) / N
+# variance == 9.6
+# numpy.var
+</code></pre>
+</li>
+</ul>
+<a class="header" href="statistics/population.html#correlation-coefficient-상관계수" id="correlation-coefficient-상관계수"><h2>Correlation Coefficient (상관계수)</h2></a>
+<p>두 특성의 변화 관계를 나타내는 대표값</p>
+<ul>
+<li>\( covariance = \frac{1}{N}\sum_{i=1}^{N}(c_i - \mu_1)(c_i - \mu_2) \)</li>
+<li>\( \rho = \frac{1}{N}\sum_{i=1}^{N}(\frac{c_i - \mu_1}{\sigma_1})(\frac{c_i - \mu_2}{\sigma_2}) \)</li>
+</ul>
+<pre><code class="language-python">fin_pop_2d = numpy.array([[0, 0], [1, 0], [1, 0], [1, 1], [1, 1], [2, 0], [2, 1], [2, 2], [2, 2], [2, 2]])
+
+mu1 = numpy.mean(fin_pop_2d[:,0])
+mu2 = numpy.mean(fin_pop_2d[:,1])
+
+sigma1 = numpy.std(fin_pop_2d[:,0])
+sigma2 = numpy.std(fin_pop_2d[:,1])
+
+rho = numpy.mean([((c1 - mu1) / sigma1) * ((c2 - mu2) / sigma2) for [c1, c2] in fin_pop_2d])
+# rho == 0.61706090734453356
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="statistics/statistics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="symbols-in-code.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="statistics/statistics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="symbols-in-code.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '_FontAwesome/css/font-awesome.css';
+                document.head.insertBefore(link, document.head.firstChild)
+            }
+        </script>
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>

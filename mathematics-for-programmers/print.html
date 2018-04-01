@@ -1,0 +1,519 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <noscript>
+            <style type="text/css">
+                .javascript-only {
+                    display: none;
+                }
+            </style>
+        </noscript>
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme;
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="set.html"><strong aria-hidden="true">1.</strong> Set</a></li><li><a href="function.html"><strong aria-hidden="true">2.</strong> Function</a></li><li><a href="field.html"><strong aria-hidden="true">3.</strong> Field</a></li><li><a href="statistics/statistics.html"><strong aria-hidden="true">4.</strong> Statistics</a></li><li><ol class="section"><li><a href="statistics/population.html"><strong aria-hidden="true">4.1.</strong> Population</a></li></ol></li><li><a href="symbols-in-code.html">Symbols in code</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons javascript-only">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </div>
+                <div id="searchresults-outer" class="searchresults-outer">
+                    <div class="searchresults-header" id="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="print.html#set" id="set"><h1>Set</h1></a>
+<hr />
+<a class="header" href="print.html#set-1" id="set-1"><h2>Set</h2></a>
+<p>\( S_1 = \{1, 2, 3\} \)</p>
+<pre><code class="language-python">S1 = {1, 2, 3}
+</code></pre>
+<p><a href="https://en.wikipedia.org/wiki/Set_(mathematics)">https://en.wikipedia.org/wiki/Set_(mathematics)</a></p>
+<a class="header" href="print.html#in" id="in"><h2>In</h2></a>
+<p>\( 1 \in S_1 \)</p>
+<pre><code class="language-python">1 in S1
+</code></pre>
+<a class="header" href="print.html#subset" id="subset"><h2>Subset</h2></a>
+<p>\( S_1 \subseteq S_2 \)</p>
+<pre><code class="language-python">S1.issubset(S2)
+</code></pre>
+<a class="header" href="print.html#cardinality" id="cardinality"><h2>Cardinality</h2></a>
+<p>\( |S_1| \)</p>
+<pre><code class="language-python">len(S1)
+</code></pre>
+<a class="header" href="print.html#cartesian-product" id="cartesian-product"><h2>Cartesian product</h2></a>
+<p>\( S_1 \times S_2 \)</p>
+<pre><code class="language-python">{(x, y) for x in S1 for y in S2}
+</code></pre>
+<a class="header" href="print.html#type" id="type"><h2>Type</h2></a>
+<p>Programming language에서 type도 set의 일종으로 생각할 수 있다.</p>
+<ul>
+<li>\( 1 \in int \)</li>
+<li>\( int \subseteq long \)</li>
+<li>\( tuple(int, float) = int \times float \)</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Type_theory">https://en.wikipedia.org/wiki/Type_theory</a></p>
+<a class="header" href="print.html#function" id="function"><h1>Function</h1></a>
+<hr />
+<a class="header" href="print.html#mathematical-function" id="mathematical-function"><h2>Mathematical function</h2></a>
+<p>\( f: D \rightarrow F \)</p>
+<pre><code class="language-python"># D: domain
+# F: co-domain
+# 수학에서의 function은 아래와 같은 pure function으로 표현될 수 있다.
+def f(x: D) -&gt; F:
+    ...
+    return y
+</code></pre>
+<ul>
+<li>Pure function: <a href="https://en.wikipedia.org/wiki/Pure_function">https://en.wikipedia.org/wiki/Pure_function</a></li>
+</ul>
+<a class="header" href="print.html#procedure" id="procedure"><h2>Procedure</h2></a>
+<p>계산 절차에 대한 구체적인 기술.</p>
+<pre><code class="language-python">def add(a, b):
+    return a + b
+</code></pre>
+<p><a href="https://en.wikipedia.org/wiki/Subroutine">https://en.wikipedia.org/wiki/Subroutine</a></p>
+<a class="header" href="print.html#computational-problem" id="computational-problem"><h2>Computational problem</h2></a>
+<p>계산 가능할 수도 있는 문제를 표현한 mathematical object</p>
+<ul>
+<li>입력과 입력에 대응하는 출력의 명세.</li>
+<li>Computational problem의 명세를 만족하는 procedure가 여러 개 있을 수 있다.</li>
+<li>모든 입력에 대해 유일한 출력을 명시하지 않을 수 있다.</li>
+<li>ex) Algorithm 문제들</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Computational_problem">https://en.wikipedia.org/wiki/Computational_problem</a></p>
+<a class="header" href="print.html#identity-function" id="identity-function"><h2>Identity function</h2></a>
+<p>\( id_D(d) = d \)</p>
+<pre><code class="language-python">idD = lambda d: d
+D = {...}
+def is_identity_function(idD, D):
+    for d in D:
+        if idD(d) != d:
+            return false
+    return true
+</code></pre>
+<a class="header" href="print.html#function-composition" id="function-composition"><h2>Function composition</h2></a>
+<p>\( f: A \rightarrow B, \quad g: B \rightarrow C, \quad g \circ f: A \rightarrow C, \quad (g \circ f)(x) = g(f(x)) \)</p>
+<pre><code class="language-python">def f(x: A) -&gt; B:
+    ...
+    return y
+
+def g(x: B) -&gt; C:
+    ...
+    return y
+
+def composite_function(g, f):
+    def g_o_f(x):
+        return g(f(x))
+    return g_o_f
+
+composite_function(g, f)(x) == g(f(x))
+</code></pre>
+<a class="header" href="print.html#one-to-one-injective-function" id="one-to-one-injective-function"><h2>One to one (injective) function</h2></a>
+<pre><code class="language-python"># for f: D -&gt; F
+f: lambda x: ...
+D = {...}
+F = {...}
+def is_one_to_one(f, D):
+    for x in D:
+        for y in D:
+            if f(x) == f(y) and x != y:
+                return false
+    return true
+</code></pre>
+<a class="header" href="print.html#onto-surjective-function" id="onto-surjective-function"><h2>Onto (surjective) function</h2></a>
+<pre><code class="language-python">def is_onto(f, D, F):
+    _range = set(map(f, D))
+    for z in F:
+        if z not in _range:
+            return false
+    return true
+</code></pre>
+<a class="header" href="print.html#bijective-function" id="bijective-function"><h2>Bijective function</h2></a>
+<pre><code class="language-python">def is_bijective(f, D, F):
+    return is_one_to_one(f, D) and is_onto(f, D, F)
+</code></pre>
+<a class="header" href="print.html#invertible-function" id="invertible-function"><h2>Invertible function</h2></a>
+<pre><code class="language-python">def is_invertible(f, D, F):
+    return is_bijective(f, D, F)
+</code></pre>
+<a class="header" href="print.html#field" id="field"><h1>Field</h1></a>
+<hr />
+<p>사칙연산이 정의되는 값들의 집합.</p>
+<a class="header" href="print.html#statistics" id="statistics"><h1>Statistics</h1></a>
+<hr />
+<p>Data를 수집, 정리, 해석하여 신뢰성 있는 결론을 이끌어내는 방법을 연구하는 학문</p>
+<ul>
+<li>sampling unit (추출 단위): 관심 대상 전체를 구성하는 각 개체</li>
+<li>characteristic (특성값): sampling unit의 특성을 나타내는 값</li>
+<li>population (모집단): 전체 sampling unit의 characteristic들의 모임
+<ul>
+<li>sampling unit의 개수에 따라 finite populatoin, infinite population로 분류</li>
+</ul>
+</li>
+<li>sample (표본): population중 분석을 위해 실제 관측한 sampling unit의 characteristic들의 모임</li>
+</ul>
+<a class="header" href="print.html#sampling-표본-추출" id="sampling-표본-추출"><h2>Sampling (표본 추출)</h2></a>
+<p>전체 추출 단위를 수집/분석 하는 것이 곤란한 경우 전체를 추론하기 위해 일부를 조사하는 것</p>
+<ul>
+<li>일부가 전체의 속성을 잘 대표해야함</li>
+<li>대표성을 확봐기 위해 population의 모든 sampling unit은 sampling될 기회를 동일하게 가져야 함</li>
+</ul>
+<a class="header" href="print.html#simple-random-sampling" id="simple-random-sampling"><h3>Simple random sampling</h3></a>
+<p>크기가 N인 finite population에서 n개의 sampling unit으로 구성된 부분집합을 추출하되 그 확률이 \( \frac1{_NC_n} \)가 되도록 하는 것</p>
+<ul>
+<li>sampling without replacement (비복원추출): 한번 추출한 것은 되돌려 놓지 않고 다음 것을 뽑음</li>
+<li>sampling with replacement (복원추출): 추출한 것을 되돌려 놓고 다음 것을 뽑음</li>
+</ul>
+<a class="header" href="print.html#statistical-experiment" id="statistical-experiment"><h2>Statistical experiment</h2></a>
+<ul>
+<li>experimental unit (실험 단위): 실험이 행해지는 개체</li>
+<li>treatment (처리): 각각의 experimental unit에 특정한 실험 환경이나 실험 조건을 가하는 것</li>
+<li>factor (인자): 실험 환경이나 실험 조건이 나타내는 변수</li>
+<li>response variable (반응 변수): factor의 변화에 따른 반응을 나타내는 변수</li>
+<li>factor level (인자 수준): 개체의 실험 환경이나 실험 조건</li>
+<li>treatment group (처리 집단): 실험을 위한 treatment를 받은 집단</li>
+<li>control group (대조 집단): 관심 factor 이외의 다른 외부 factor의 효과를 통제하기 위한 집단</li>
+<li>statistical experiment계획 원칙
+<ul>
+<li>관심 factor 이외의 다른 외부 factor의 효과를 극소화한다</li>
+<li>각 experimental unit에 어떤 treatment를 가할지를 정할 때, 모든 experimental unit에 특정 treatment를 받을 기회를 동등하게 부여한다</li>
+<li>충분히 많은 experimental unit에 각 treatment를 반복 실시한다</li>
+</ul>
+</li>
+<li>blocking (블록화): 동일한 treatment에 대해 반응이 유사할 것으로 예상되는 experimental unit들을 모아 군을 형성하는 것</li>
+</ul>
+<a class="header" href="print.html#population" id="population"><h1>Population</h1></a>
+<hr />
+<ul>
+<li>central tendency (대표값): distribution의 특징을 나타내는 값</li>
+<li>parameter (모수): population의 특징을 나타내는 central tendency</li>
+</ul>
+<a class="header" href="print.html#distribution-분포" id="distribution-분포"><h2>Distribution (분포)</h2></a>
+<p>population의 characteristic이 흩어져 있는 상태를 합이 1인 양수 (relative frequency, 상대 도수)로 나타낸 것</p>
+<ul>
+<li>population mean (모평균): characteristic의 arithmetic mean (산술 평균)으로 정의됨
+<ul>
+<li>finite population \( \{ c_1, c_2, ..., c_N \} \) 에 대해서
+<ul>
+<li>\( \mu = \frac{1}{N}\sum_{i=1}^{N}c_i\)</li>
+</ul>
+<pre><code class="language-python">fin_pop = [1, 1, 2, 2, 4, 8, 8, 8, 8, 8]
+N = len(fin_pop)
+mu = sum(fin_pop) / N
+# mu == 5.0
+# numpy.mean
+</code></pre>
+<ul>
+<li>finite population에서 distinct한 characteristic들이 \( \dot{c_1}, \dot{c_2}, ..., \dot{c_k} \) 이고, 각각의 frequency를 \( f_1, f_2, ..., f_k \) 일 때 population mean은</li>
+<li>\( \mu = \sum_{i=1}^{k}\dot{c_i}\frac{f_i}{N}\)</li>
+</ul>
+<pre><code class="language-python">freqs = {c_dot: fin_pop.count(c_dot) for c_dot in set(fin_pop)}
+mu = sum([c_dot * f for c_dot, f in freqs.items()]) / N
+# mu == 5.0
+</code></pre>
+</li>
+<li>infinite population인 경우
+<ul>
+<li>density function (밀도 함수) p에 대해</li>
+<li>\( \mu = \sum_{x}xp(x) \), p는 relative frequency의 극한</li>
+<li>\( \mu = \int_{-\infty}^{\infty}xp(x)dx \), p는 density curve가 나타내는 함수</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>pth percentile (제 p 백분위수): characteristic을 오름차순으로 정렬했을 때, p%의 characteristic이 그 값보다 작고, (100-p)%의 characteristic이 그 값보다 크게 되는 값
+<ul>
+<li>first quartile (\( Q_1 \), 제1사분위수): 25th per centile</li>
+<li>third quartile (\( Q_3 \), 제3사분위수): 75th per centile</li>
+<li>median (\( Q_2 \), 중앙값): 50th per centile
+<ul>
+<li>distribution의 중심 위치를 나타 낸다</li>
+<li>infinite population의 경우 density curve의 넓이를 이등분 하는 지점</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">def percentile(fin_pop, p):
+    sorted_fin_pop = sorted(fin_pop)
+    N = len(sorted_fin_pop)
+    index = (p / 100.0) * (N-1)
+    i = int(index)
+    if i == index:
+        return sorted_fin_pop[i]
+    else:
+        j = i + 1
+        low = sorted_fin_pop[i] * (j - index)
+        high = sorted_fin_pop[j] * (index - i)
+        return low + high
+
+Q1 = percentile(fin_pop, 25) # Q1 == 2.0
+Q2 = percentile(fin_pop, 50) # Q2 == 6.0
+Q3 = percentile(fin_pop, 75) # Q3 == 8.0
+# numpy.percentile
+</code></pre>
+</li>
+</ul>
+<a class="header" href="print.html#dispersion-산포-variability-scatter-or-spread" id="dispersion-산포-variability-scatter-or-spread"><h2>Dispersion (산포, variability, scatter, or spread)</h2></a>
+<p>population에서 characteristic이 흩어져 있는 상태</p>
+<ul>
+<li>mean absolute deviation (평균절대편차, MAD): \( c_i \)가 \( Q_2 \)로부터 떨어진 거리의 평균
+<ul>
+<li>\( MAD = \frac{1}{N}\sum_{i=1}^{N}|c_i - Q_2| \)</li>
+</ul>
+<pre><code class="language-python">MAD = sum([abs(c - Q2) for c in fin_pop]) / N
+# MAD == 3.0
+</code></pre>
+</li>
+<li>interquartile range (사분위수범위, IQR): \( Q_3 \) 와 \( Q_1 \) 의 차이, population에서 가운데 50%의 characteristic의 범위를 나타냄
+<ul>
+<li>\( IQR = Q_3 - Q_1 \)</li>
+</ul>
+</li>
+<li>standard deviation (\( \sigma \), 표준편차)
+<ul>
+<li>deviation (편차): \( d = c - \mu \)</li>
+<li>\( \sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(c_i - \mu)^2} \)</li>
+</ul>
+<pre><code class="language-python">sigma = math.sqrt(sum([(c - mu) ** 2 for c in fin_pop]) / N)
+# sigma == 3.0983866769659336
+# numpy.std 
+</code></pre>
+</li>
+<li>variance (분산): standard deviation의 제곱
+<ul>
+<li>\( \sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(c_i - \mu)^2 \)</li>
+</ul>
+<pre><code class="language-python">variance = sum([(c - mu) ** 2 for c in fin_pop]) / N
+# variance == 9.6
+# numpy.var
+</code></pre>
+</li>
+</ul>
+<a class="header" href="print.html#correlation-coefficient-상관계수" id="correlation-coefficient-상관계수"><h2>Correlation Coefficient (상관계수)</h2></a>
+<p>두 특성의 변화 관계를 나타내는 대표값</p>
+<ul>
+<li>\( covariance = \frac{1}{N}\sum_{i=1}^{N}(c_i - \mu_1)(c_i - \mu_2) \)</li>
+<li>\( \rho = \frac{1}{N}\sum_{i=1}^{N}(\frac{c_i - \mu_1}{\sigma_1})(\frac{c_i - \mu_2}{\sigma_2}) \)</li>
+</ul>
+<pre><code class="language-python">fin_pop_2d = numpy.array([[0, 0], [1, 0], [1, 0], [1, 1], [1, 1], [2, 0], [2, 1], [2, 2], [2, 2], [2, 2]])
+
+mu1 = numpy.mean(fin_pop_2d[:,0])
+mu2 = numpy.mean(fin_pop_2d[:,1])
+
+sigma1 = numpy.std(fin_pop_2d[:,0])
+sigma2 = numpy.std(fin_pop_2d[:,1])
+
+rho = numpy.mean([((c1 - mu1) / sigma1) * ((c2 - mu2) / sigma2) for [c1, c2] in fin_pop_2d])
+# rho == 0.61706090734453356
+</code></pre>
+<a class="header" href="print.html#symbols-in-code" id="symbols-in-code"><h1>Symbols in code</h1></a>
+<a class="header" href="print.html#operations" id="operations"><h2>Operations</h2></a>
+<p>\( sum = \sum_{i = begin}^{end} i \)</p>
+<pre><code class="language-python">    def sum(begin, end):
+        add = lambda a, b: a + b
+        return reduce(add, [i for i in range(begin, end + 1)])
+</code></pre>
+<p>\( sum = \sum_{i \in S} i \)</p>
+<pre><code class="language-python">    def sum(S):
+        add = lambda a, b: a + b
+        return reduce(add, [i for i in S])
+</code></pre>
+<p>\( prod = \prod_{i \in S} f(i) \)</p>
+<pre><code class="language-python">    def prod(S):
+        f = lambda x: x
+        mul = lambda a, b: a * b
+        return reduce(mul, [f(i) for i in S])
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '_FontAwesome/css/font-awesome.css';
+                document.head.insertBefore(link, document.head.firstChild)
+            }
+        </script>
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                window.print();
+            })
+        </script>
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>
