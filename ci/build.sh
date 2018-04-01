@@ -24,4 +24,5 @@ clean()
 }
 
 build machine-learning-crash-course
+build mathematics-for-programmers
 clean
